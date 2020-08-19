@@ -5,13 +5,13 @@ const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "index.html": "db40952a6e0e01508d8534d677a03bd3",
 "/": "db40952a6e0e01508d8534d677a03bd3",
-"main.dart.js": "2c02cdc5246b9945b4e37795ba002b9d",
+"main.dart.js": "ecfb39ac46d92681be3a35ddcafc4d2b",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "45e0b603f1fbee9d2b0d2ecf2a223e8d",
 "assets/AssetManifest.json": "556068e9132d8473178f16fb14b7f3f3",
-"assets/NOTICES": "43dc5e32f528b9b7faf3be0edbc6fb52",
+"assets/NOTICES": "ec0cbab12fb1183bface2d6642264f8c",
 "assets/FontManifest.json": "d6e90fbb27a88b974ab9b212c7c7518c",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "115e937bb829a890521f72d2e664b632",
 "assets/packages/flutter_icons/fonts/Octicons.ttf": "73b8cff012825060b308d2162f31dbb2",
@@ -130,8 +130,8 @@ const CORE = [
 self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
-      // Provide a 'reload' param to ensure the latest version is downloaded.
-      return cache.addAll(CORE.map((value) => new Request(value, {'cache': 'reload'})));
+      return cache.addAll(
+        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
     })
   );
 });
