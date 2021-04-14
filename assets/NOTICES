@@ -5568,7 +5568,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 connectivity
 device_info
 device_info_platform_interface
-image_picker_platform_interface
 package_info
 path_provider_macos
 path_provider_windows
@@ -6862,6 +6861,7 @@ SOFTWARE.
 
 --------------------------------------------------------------------------------
 flutter_plugin_android_lifecycle
+image_picker_platform_interface
 video_player
 video_player_platform_interface
 webview_flutter
